@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt -BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detran</title>
+    <style>
+        body{
+            text-align: center;
+            margin-top: 100px;
+            background-color: black;
+        }
+
+        h1{
+            font: normal 27pt Arial justify;;
+        }
+
+        p{
+            font: normal 19pt Arial justify;
+        }
+
+        input#bt{
+            width: 400px;
+            height: 50px;
+            font: normal 15pt;
+            margin-top: 10px;
+        }
+
+        input{
+            width: 400px;
+            height: 20px;
+        }
+
+        div{
+            margin-top: 10px;
+            font: normal 19pt Arial;
+
+        }
+        div#corpo{
+            background-color: lightslategray;
+            width: 500px;
+            margin-left: 450px;
+            border-radius: 10px;
+            border-top: darkcyan;
+            border-color: rgb(255, 255, 255);
+        }
+    </style>
+
+</head>
+<body>
+    <div id="corpo">
+        <h1><strong>SISTEMA DE MULTAS</strong></h1>
+        <p>Informe o Tempo em <strong>HORAS</strong>:</p>
+        <input  type="Number" id="tempo">
+        <p>Informe a Distancia em <strong>QUILOMETROS</strong>:</p>
+        <input type="number" id="distancia">
+        <br>
+        <input type="button" value="Calcular" id="bt" onclick="calcular()">
+
+        <div id="result">
+            Resultado
+        </div>
+
+        <div id="sit">
+            SITUAÇÃO
+        </div>
+    </div>
+    <script>
+        function calcular(){
+            var temp = window.document.getElementById("tempo")
+
+            var dist = window.document.  getElementById("distancia")
+            
+            var sit = window.document.getElementById("sit")
+
+            var result = window.document.getElementById("result")
+
+            var tempnum =Number(temp.value)
+            var distnum = Number(dist.value)
+
+            var vel = distnum / tempnum
+
+            result.innerHTML = `A velocidade media do veiculo é de ${vel}KM/h`
+
+            if (vel > 100){
+                sit.innerHTML = "O carro deve ser <strong>multado</strong>"
+            }
+            
+            else{
+                sit.innerHTML = "O carro está em situação <strong>legal</strong>"
+            }
+        }
+
+    </script>
+</body>
+</html>
